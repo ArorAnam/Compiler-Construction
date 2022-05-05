@@ -1,0 +1,31 @@
+class Program {
+	int A[100];
+
+	void main() {
+		int n, max1, max2, temp;
+		n = callout("read_int");
+		for i = 0 , n {
+			A[i] = callout("read_int");
+		}
+		// assume n >= 2
+		max1 = A[0];
+		max2 = A[1];
+		if (max1 < max2) {
+			temp = max1;
+			max1 = max2;
+			max2 = temp;
+		}
+		for i = 2 , n {
+			if (A[i] > max2) {
+				max2 = A[i];
+			}
+			if (max1 < max2) {
+				temp = max1;
+				max1 = max2;
+				max2 = temp;
+			}
+		}
+		callout("write_int", max2);
+		callout("write_char", '\n');
+	}
+}
